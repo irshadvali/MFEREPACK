@@ -44,3 +44,19 @@ yarn run:app1:android
 yarn run:app2:ios
 yarn run:app2:android
 ```
+
+Focus On:
+```bash
+# NPM Package install as dev
+    "@callstack/repack"
+    "@react-native-community/eslint-config"
+    "@types/jest"
+    "babel-loader"
+    "terser-webpack-plugin"
+    "webpack"
+
+# Files
+ in all app add file 1- react-native.config.js 2- webpack.config.mis
+ and  in RNSuperApp check index.js and App.tsx
+
+```
