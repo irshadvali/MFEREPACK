@@ -1,0 +1,17 @@
+{
+  "name": "@el173/rn-micro-frontend-boilerplate",
+  "private": true,
+  "scripts": {
+    "bootstrap": "yarn --cwd RNMiniAppOne && yarn --cwd RNMiniAppTwo && yarn --cwd RNSuperApp",
+    "pod-install": "cd RNMiniAppOne/ios/ && pod install && cd ../../RNMiniAppTwo/ios/ && pod install && cd ../../RNSuperApp/ios && pod install",
+    "start:app1": "yarn --cwd RNMiniAppOne start",
+    "start:app2": "yarn --cwd RNMiniAppTwo start",
+    "start:host": "yarn --cwd RNSuperApp start",
+    "run:host:ios": "yarn --cwd RNSuperApp ios",
+    "run:host:android": "yarn --cwd RNSuperApp android",
+    "run:app1:ios": "STANDALONE=1 yarn --cwd RNMiniAppOne ios",
+    "run:app1:android": "STANDALONE=1 yarn --cwd RNMiniAppOne android",
+    "run:app2:ios": "STANDALONE=1 yarn --cwd RNMiniAppTwo ios",
+    "run:app2:android": "STANDALONE=1 yarn --cwd RNMiniAppTwo android"
+  }
+}
