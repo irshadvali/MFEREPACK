@@ -24,6 +24,7 @@ Start development servers separately:
 # todo:: configure with yarn workspace
 yarn start:app1
 yarn start:app2
+yarn start:app3
 yarn start:host
 ```
 
@@ -43,6 +44,10 @@ yarn run:app1:android
 # App Two
 yarn run:app2:ios
 yarn run:app2:android
+
+# App Three
+yarn run:app3:ios
+yarn run:app3:android
 ```
 
 Focus On:
