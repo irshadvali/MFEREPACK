@@ -11,6 +11,7 @@ const resolveURL = Federated.createURLResolver({
   containers: {
     RNMiniAppOne: 'http://localhost:8083/[name][ext]',
     RNMiniAppTwo: 'http://localhost:8084/[name][ext]',
+    RNMiniAppThree: 'http://localhost:8085/[name][ext]',
   },
 });
 

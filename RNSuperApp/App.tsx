@@ -13,7 +13,7 @@ import {Federated} from '@callstack/repack/client';
 
 const App1 = React.lazy(() => Federated.importModule('RNMiniAppOne', './App'));
 const App2 = React.lazy(() => Federated.importModule('RNMiniAppTwo', './App'));
-
+const App3 = React.lazy(() => Federated.importModule('RNMiniAppThree', './App'));
 function App(): JSX.Element {
 
   const [visibleApp, setVisibleApp] = useState<string>('');
@@ -36,6 +36,14 @@ function App(): JSX.Element {
             </React.Suspense>
           </View>
         );
+        case 'app3':
+          return (
+            <View style={styles.miniAppWrapper}>
+              <React.Suspense fallback={<Text>Loading app3...</Text>}>
+                <App3 />
+              </React.Suspense>
+            </View>
+          );
       default:
         return (
           <SafeAreaView>
@@ -43,6 +51,7 @@ function App(): JSX.Element {
             <View style={styles.mainContainer}>
               <Button title="App One" onPress={() => setVisibleApp('app1')} />
               <Button title="App Two" onPress={() => setVisibleApp('app2')} />
+              <Button title="App Three" onPress={() => setVisibleApp('app3')} />
             </View>
           </SafeAreaView>
         );
