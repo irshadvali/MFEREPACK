@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, { useState } from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 
 import {
@@ -57,6 +58,7 @@ function Section({children, title}: SectionProps): JSX.Element {
 
 function App(): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
+  const [count, setCount] = useState(0);
 
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
@@ -71,12 +73,25 @@ function App(): JSX.Element {
       <ScrollView
         contentInsetAdjustmentBehavior="automatic"
         style={backgroundStyle}>
-        <Header />
+        {/* <Header /> */}
         <View
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Text>Three App</Text>
+          <Text>Three App </Text>
+          <Text>{count}</Text>
+          <Button
+            title="Incremmnet"
+            onPress={() => {
+              setCount(count + 1);
+            }}
+          />
+          <Button
+            title="Decrement"
+            onPress={() => {
+              setCount(count - 1);
+            }}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
