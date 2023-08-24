@@ -9,9 +9,9 @@ import App from './App';
 
 const resolveURL = Federated.createURLResolver({
   containers: {
-    RNMiniAppOne: 'http://localhost:8083/[name][ext]',
-    RNMiniAppTwo: 'http://localhost:8084/[name][ext]',
-    RNMiniAppThree: 'http://localhost:8085/[name][ext]',
+    RNMiniAppOne: 'http://10.0.2.2:8083/[name][ext]',
+    RNMiniAppTwo: 'http://10.0.2.2:8084/[name][ext]',
+    RNMiniAppThree: 'http://10.0.2.2:8085/[name][ext]',
   },
 });
 

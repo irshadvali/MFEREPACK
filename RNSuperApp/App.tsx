@@ -50,7 +50,9 @@ function App(): JSX.Element {
             <StatusBar />
             <View style={styles.mainContainer}>
               <Button title="App One" onPress={() => setVisibleApp('app1')} />
+              <View style={{marginTop: 20}}/>
               <Button title="App Two" onPress={() => setVisibleApp('app2')} />
+              <View style={{marginTop: 20}}/>
               <Button title="App Three" onPress={() => setVisibleApp('app3')} />
             </View>
           </SafeAreaView>

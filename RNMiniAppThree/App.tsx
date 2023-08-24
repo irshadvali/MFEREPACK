@@ -79,13 +79,16 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text>Three App </Text>
+          <View style={{marginTop: 20}} />
           <Text>{count}</Text>
+          <View style={{marginTop: 20}} />
           <Button
             title="Incremmnet"
             onPress={() => {
               setCount(count + 1);
             }}
           />
+          <View style={{marginTop: 20}} />
           <Button
             title="Decrement"
             onPress={() => {
