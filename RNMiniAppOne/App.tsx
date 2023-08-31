@@ -5,7 +5,7 @@
  * @format
  */
 
-import React from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -15,6 +15,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Button,
 } from 'react-native';
 
 import {
@@ -25,43 +26,26 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
+interface IApp {
+  name: string;
+  fromChild: any;
+  appOneCount: any;
 }
-
-function App(): JSX.Element {
+const App: React.FunctionComponent<IApp> = ({name, fromChild, appOneCount}) => {
   const isDarkMode = useColorScheme() === 'dark';
-
+  const [count, setCount] = useState<number>(0);
   const backgroundStyle = {
     backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
   };
 
+  const incrementData = () => {
+    appOneCount(count + 1);
+    setCount(count + 1);
+  };
+  const decremetData = () => {
+    appOneCount(count - 1);
+    setCount(count - 1);
+  };
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar
@@ -77,11 +61,22 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text style={styles.highlight}>One App .</Text>
+          <Text style={styles.highlight}>{name}</Text>
+          <Text style={styles.highlight}>{count}</Text>
+          <Button
+            color="#f194ff"
+            title="Click<-Button in App1"
+            onPress={() => fromChild('this data coming from app1 as child')}
+          />
+          <View style={{flex: 1, flexDirection: 'row'}}>
+            <Button color="#d00000" title="decrement" onPress={decremetData} />
+            <Button color="green" title="increment" onPress={incrementData} />
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   sectionContainer: {

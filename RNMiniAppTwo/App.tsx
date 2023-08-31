@@ -54,8 +54,11 @@ function Section({children, title}: SectionProps): JSX.Element {
     </View>
   );
 }
-
-function App(): JSX.Element {
+type IApp = PropsWithChildren<{
+  name: string;
+  oneAppCount: number;
+}>;
+function App({name, oneAppCount}: IApp): JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
@@ -77,6 +80,8 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text style={styles.highlight}>App two</Text>
+          <Text style={styles.highlight}>{name}</Text>
+          <Text style={styles.highlight}>{oneAppCount}</Text>
         </View>
       </ScrollView>
     </SafeAreaView>

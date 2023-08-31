@@ -5,7 +5,7 @@
  * @format
  */
 
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
@@ -79,8 +79,17 @@ function App(): JSX.Element {
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
           <Text>Three App </Text>
-          <View style={{marginTop: 20}} />
-          <Text>{count}</Text>
+          <View
+            // eslint-disable-next-line react-native/no-inline-styles
+            style={{
+              marginTop: 20,
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
+          />
+          <Text style={{fontSize: 20, textAlign: 'center', fontWeight: 'bold'}}>
+            {count}
+          </Text>
           <View style={{marginTop: 20}} />
           <Button
             title="Incremmnet"

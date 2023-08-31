@@ -8,10 +8,11 @@ import {name as appName} from './app.json';
 import App from './App';
 
 const resolveURL = Federated.createURLResolver({
+
   containers: {
-    RNMiniAppOne: 'http://10.0.2.2:8083/[name][ext]',
-    RNMiniAppTwo: 'http://10.0.2.2:8084/[name][ext]',
-    RNMiniAppThree: 'http://10.0.2.2:8085/[name][ext]',
+    RNMiniAppOne: Platform.OS === 'ios' ? 'http://localhost:8083/[name][ext]': 'http://10.0.2.2:8083/[name][ext]',
+    RNMiniAppTwo: Platform.OS === 'ios' ? 'http://localhost:8084/[name][ext]': 'http://10.0.2.2:8084/[name][ext]',
+    RNMiniAppThree: Platform.OS === 'ios' ? 'http://localhost:8085/[name][ext]': 'http://10.0.2.2:8085/[name][ext]',
   },
 });
 
